@@ -17,22 +17,19 @@ SpotSonic is the latest digital music platform, allowing access to a large libra
 To get started with SpotSonic, go through the following steps:
 
 1. Clone the repository:
-2. 
     ``` 
 
     git clone https://github.com/lewiskirori/spotsonic.git
     
     ```
-3. Install dependencies: 
-4. 
-5. ``` 
+2. Install dependencies: 
+    ``` 
 
     npm install
     
     ```
-6. Run the application: 
-7. 
-8. ``` 
+3. Run the application: 
+    ``` 
 
     npm start
     
