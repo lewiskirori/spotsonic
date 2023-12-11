@@ -1,7 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 export default function Home() {
+  const [greetings, setGreeting] = useState('');
+
+  useEffect(() => {
+    const currentTime = new Date().getHours();
+
+    if (currentTime >= 0 && currentTime < 12) {
+      setGreeting('Good morning');
+    } else if (currentTime >= 12 && currentTime < 16) {
+      setGreeting('Good afternoon');
+    } else if (currentTime >= 16 && currentTime < 21) {
+      setGreeting('Good evening');
+    } else {
+      setGreeting('Zzzzzzz');
+    }
+  }, []);
+
   return (
     <div className="
       bg-neutral-900
@@ -20,7 +39,7 @@ export default function Home() {
               font-semibold
             "
           >
-            Welcome back
+            {greetings}
           </h1>
           <div
             className="
