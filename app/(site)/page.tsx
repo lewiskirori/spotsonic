@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 export default function Home() {
-  const [greetings, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
     const currentTime = new Date().getHours();
@@ -39,7 +39,7 @@ export default function Home() {
               font-semibold
             "
           >
-            {greetings}
+            {greeting}
           </h1>
           <div
             className="
