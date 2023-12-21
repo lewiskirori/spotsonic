@@ -91,17 +91,17 @@ const Library = () => {
                         placement="top"
                     >
                         <IconButton
-                        onClick={onClick}
-                        className={`
-                            text-neutral-400
-                            hover:text-white
-                            hover:bg-neutral-800
-                            transition
-                            duration-500 ease-in-out
-                            ${isActive ? 'bg-black' : ''}
-                        `}
-                        >
-                        <HiOutlinePlus size={20} />
+                            onClick={onClick}
+                            className={`
+                                text-neutral-400
+                                hover:text-white
+                                hover:bg-neutral-800
+                                transition
+                                duration-500 ease-in-out
+                                ${isActive ? 'bg-black' : ''}
+                            `}
+                            >
+                            <HiOutlinePlus size={20} />
                         </IconButton>
                     </Tooltip>
                 </div>
