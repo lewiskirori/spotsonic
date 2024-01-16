@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Sidebar from '@/components/Sidebar'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
-
-const font = Montserrat ({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'SpotSonic - Web Play: Music for all tastes',
@@ -20,7 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+        />
+      </head>
+      <body>
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
