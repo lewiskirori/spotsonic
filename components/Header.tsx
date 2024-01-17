@@ -14,6 +14,7 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useUser } from '@/hooks/useUser';
 import { useState } from 'react';
 import { HiUser } from "react-icons/hi";
+import { Typography } from '@mui/material';
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -216,14 +217,23 @@ const Header: React.FC<HeaderProps> = ({
                             </Button>
                             <Tooltip
                                 title={
-                                    <span
-                                    style={{
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: '600',
-                                    }}
-                                    >
-                                    {user ? user.email : ''}
-                                    </span>
+                                    <React.Fragment>
+                                        <span
+                                        style={{
+                                            fontFamily: 'Montserrat',
+                                            fontWeight: '600',
+                                        }}
+                                        >
+                                        <Typography 
+                                            fontFamily= 'inherit'
+                                            fontWeight= '600'
+                                            fontSize= 'inherit'
+                                        >
+                                            {'Hi,'}
+                                        </Typography>
+                                        {user ? user.email : ''}
+                                        </span>
+                                    </React.Fragment>
                                 }
                                 arrow={false}
                                 placement="bottom"
