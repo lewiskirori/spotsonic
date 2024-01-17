@@ -37,6 +37,7 @@ export default function Home() {
               text-white
               text-3xl
               font-semibold
+              tracking-tighter
             "
           >
             {greetings}
@@ -50,6 +51,7 @@ export default function Home() {
               2xl:grid-cols-4
               gap-3
               mt-4
+              tracking-tighter
             "
           >
             <ListItem 

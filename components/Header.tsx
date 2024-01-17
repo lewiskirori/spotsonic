@@ -10,6 +10,10 @@ import Ripples from 'react-ripples';
 import { LuSearch } from 'react-icons/lu';
 import Button from './Button';
 import useAuthModal from '@/hooks/useAuthModal';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useUser } from '@/hooks/useUser';
+import { useState } from 'react';
+import { HiUser } from "react-icons/hi";
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -23,8 +27,23 @@ const Header: React.FC<HeaderProps> = ({
     const authModal = useAuthModal();
     const router = useRouter();
 
-    const handleLogout = () => {
+    const supabaseClient = useSupabaseClient();
+    const { user } = useUser();
 
+    const [loggingOut, setLoggingOut] = useState(false);
+
+    const handleLogout = async () => {
+        setLoggingOut(true);
+
+        const { error } = await supabaseClient.auth.signOut();
+
+        setLoggingOut(false);
+    
+        router.refresh();
+
+        if (error) {
+            console.log(error);
+        }
     }
 
 
@@ -140,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({
                                 duration-300 ease-in-out
                             "
                         >
-                            <GoHomeFill className="text-black" size={20}/>
+                            <GoHomeFill className="text-black" size={20} />
                         </button>
                     </Ripples>
                     <Ripples
@@ -160,7 +179,7 @@ const Header: React.FC<HeaderProps> = ({
                                 duration-300 ease-in-out
                             "
                         >
-                            <LuSearch className="text-black" size={20}/>
+                            <LuSearch className="text-black" size={20} />
                         </button>
                     </Ripples>
                 </div>
@@ -172,37 +191,89 @@ const Header: React.FC<HeaderProps> = ({
                         gap-x-4
                     "
                 >
-                    <>
-                        <div>
+                    {user ? (
+                        <div className={`flex gap-x-4 items-center ${className}`}>
                             <Button
-                                onClick={authModal.onOpen}
-                                className='
-                                    bg-transparent
-                                    text-neutral-300
-                                    font-md
-                                    transition-transform duration-100 ease-in-out
-                                    hover:text-white
-                                    hover:transform hover:scale-110
-                                '
+                                onClick={handleLogout}
+                                className="
+                                bg-white 
+                                px-6
+                                py-2
+                                transition-all
+                                ease-in-out
+                                border
+                                border-solid
+                                border-white
+                                hover:bg-transparent
+                                hover:border-red-500
+                                hover:text-red-500
+                                active:bg-transparent
+                                active:border-red-500
+                                active:text-red-500
+                                "
                             >
-                                Sign up
+                                {loggingOut ? 'Logging out…' : 'Logout'}
                             </Button>
-                        </div>
-                        <div>
-                            <Button
-                                onClick={authModal.onOpen}
-                                className='
+                            <Tooltip
+                                title={
+                                    <span
+                                    style={{
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: '600',
+                                    }}
+                                    >
+                                    {user ? user.email : ''}
+                                    </span>
+                                }
+                                arrow={false}
+                                placement="bottom"
+                            >
+                                <Button
+                                    onClick={() => router.push('/account')}
+                                    className='
                                     bg-white
-                                    px-8
-                                    py-3
-                                    hover:transform hover:scale-110
-                                    transition-transform duration-100 ease-in-out
-                                '
-                            >
-                                Log in
-                            </Button>
+                                    hover:opacity-75
+                                    transition
+                                    duration-300 ease-in-out
+                                    '
+                                >
+                                    <HiUser size={20} />
+                                </Button>
+                            </Tooltip>
                         </div>
-                    </>
+                    ) : (
+                        <>
+                            <div>
+                                <Button
+                                    onClick={authModal.onOpen}
+                                    className='
+                                        bg-transparent
+                                        text-neutral-300
+                                        font-md
+                                        transition-transform duration-100 ease-in-out
+                                        hover:text-white
+                                        hover:transform hover:scale-110
+                                    '
+                                >
+                                    Sign up
+                                </Button>
+                            </div>
+                            <div>
+                                <Button
+                                    onClick={authModal.onOpen}
+                                    className='
+                                        bg-white
+                                        px-8
+                                        py-3
+                                        hover:transform hover:scale-110
+                                        transition-transform duration-100 ease-in-out
+                                    '
+                                >
+                                    Log in
+                                </Button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
             {children}
