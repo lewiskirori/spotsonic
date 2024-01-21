@@ -15,6 +15,7 @@ import { useUser } from '@/hooks/useUser';
 import { useState } from 'react';
 import { HiUser } from "react-icons/hi";
 import { Typography } from '@mui/material';
+import toast from 'react-hot-toast';
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -41,9 +42,11 @@ const Header: React.FC<HeaderProps> = ({
         setLoggingOut(false);
     
         router.refresh();
-
+  
         if (error) {
-            console.log(error);
+            toast.error(error.message);
+        } else {
+            toast.success('You’ve been signed out.')
         }
     }
 
@@ -213,7 +216,7 @@ const Header: React.FC<HeaderProps> = ({
                                 active:text-red-500
                                 "
                             >
-                                {loggingOut ? 'Logging out…' : 'Logout'}
+                                {loggingOut ? 'Logout…' : 'Logout'}
                             </Button>
                             <Tooltip
                                 title={
@@ -229,7 +232,7 @@ const Header: React.FC<HeaderProps> = ({
                                             fontWeight= '600'
                                             fontSize= 'inherit'
                                         >
-                                            {'Hi,'}
+                                            {'Welcome to see you!'}
                                         </Typography>
                                         {user ? user.email : ''}
                                         </span>

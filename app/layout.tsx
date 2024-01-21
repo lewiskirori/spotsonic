@@ -4,6 +4,7 @@ import Sidebar from '@/components/Sidebar'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
+import ToasterProvider from '@/providers/ToasterProvider'
 
 export const metadata: Metadata = {
   title: 'SpotSonic - Web Play: Music for all tastes',
@@ -24,6 +25,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
