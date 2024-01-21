@@ -5,14 +5,22 @@ import { LuLibrary } from "react-icons/lu";
 import { HiOutlinePlus } from "react-icons/hi";
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
+import useAuthModal from '@/hooks/useAuthModal';
+import { useUser } from '@/hooks/useUser';
 
 const Library = () => {
+    const authModal = useAuthModal();
+    const { user } = useUser();
+
     const [isActive, setIsActive] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
     const onClick = () => {
-        setIsActive(!isActive);
+        if (!user) {
+            return authModal.onOpen();
+        }
 
+        setIsActive(!isActive);
     };
 
     React.useEffect(() => {

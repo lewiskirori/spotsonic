@@ -10,11 +10,11 @@ export default function Home() {
   useEffect(() => {
     const currentTime = new Date().getHours();
 
-    if (currentTime >= 0 && currentTime < 12) {
+    if (currentTime >= 4 && currentTime < 12) {
       setGreeting('Good morning');
     } else if (currentTime >= 12 && currentTime < 16) {
       setGreeting('Good afternoon');
-    } else if (currentTime >= 16 && currentTime < 21) {
+    } else if (currentTime >= 16 && currentTime < 22) {
       setGreeting('Good evening');
     } else {
       setGreeting('Zzzzzzz');
