@@ -7,9 +7,11 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
+import useUploadModal from '@/hooks/useUploadModal';
 
 const Library = () => {
     const authModal = useAuthModal();
+    const uploadModal = useUploadModal();
     const { user } = useUser();
 
     const [isActive, setIsActive] = useState(false);
@@ -21,6 +23,8 @@ const Library = () => {
         }
 
         setIsActive(!isActive);
+
+        return uploadModal.onOpen();
     };
 
     React.useEffect(() => {
