@@ -51,6 +51,7 @@ const UploadModal = () => {
 
             const uniqueID = uniqid();
 
+            // Song upload
             const {
                 data: songData,
                 error: songError,
@@ -60,7 +61,47 @@ const UploadModal = () => {
                 .upload(`song-${values.title}-${uniqueID}`, songFile, {
                     cacheControl: '3600',
                     upsert: false
-                })
+                });
+
+                if (songError) {
+                    setIsLoading(false);
+                    return toast.error('Song upload was unsuccessful.');
+                }
+
+
+            // Picture upload
+            const {
+                data: imageData,
+                error: imageError,
+            } = await supabaseClient
+                .storage
+                .from('images')
+                .upload(`image-${values.title}-${uniqueID}`, imageFile, {
+                    cacheControl: '3600',
+                    upsert: false
+                });
+
+                if (imageError) {
+                    setIsLoading(false);
+                    return toast.error('Error during image upload')
+                }
+
+                const {
+                    error: supabaseError
+                } = await supabaseClient
+                    .from('songs')
+                    .insert({
+                        user_id: user.id,
+                        title: values.title,
+                        author: values.author,
+                        image_path: imageData.path,
+                        song_path: songData.path
+                    });
+
+                    if (supabaseError) {
+                        setIsLoading(false);
+                        return toast.error(supabaseError.message);
+                    }
         } catch (error) {
             toast.error("Uh-oh! Something didn’t work.")
         } finally {
