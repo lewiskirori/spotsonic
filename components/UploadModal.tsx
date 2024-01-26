@@ -10,12 +10,14 @@ import Button from "./Button";
 import toast from "react-hot-toast";
 import { useUser } from "@/hooks/useUser";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
 
 const UploadModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const uploadModal = useUploadModal();
     const { user } = useUser();
     const supabaseClient = useSupabaseClient();
+    const router = useRouter();
 
     const {
         register,
@@ -86,22 +88,28 @@ const UploadModal = () => {
                     return toast.error('Error during image upload')
                 }
 
-                const {
-                    error: supabaseError
-                } = await supabaseClient
-                    .from('songs')
-                    .insert({
-                        user_id: user.id,
-                        title: values.title,
-                        author: values.author,
-                        image_path: imageData.path,
-                        song_path: songData.path
-                    });
+            const {
+                error: supabaseError
+            } = await supabaseClient
+                .from('songs')
+                .insert({
+                    user_id: user.id,
+                    title: values.title,
+                    author: values.author,
+                    image_path: imageData.path,
+                    song_path: songData.path
+                });
 
-                    if (supabaseError) {
-                        setIsLoading(false);
-                        return toast.error(supabaseError.message);
-                    }
+                if (supabaseError) {
+                    setIsLoading(false);
+                    return toast.error(supabaseError.message);
+                }
+
+                router.refresh();
+                setIsLoading(false);
+                toast.success('New song added successfully!');
+                reset();
+                uploadModal.onClose();
         } catch (error) {
             toast.error("Uh-oh! Something didn’t work.")
         } finally {
@@ -158,7 +166,7 @@ const UploadModal = () => {
                     />
                 </div>
                 <Button className="hover:opacity-75" disabled={isLoading} type="submit">
-                    Compose your track
+                    {isLoading ? 'Composing…' : 'Compose your track'}
                 </Button>
             </form>
         </Modal>
