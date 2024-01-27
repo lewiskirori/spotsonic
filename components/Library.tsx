@@ -8,8 +8,16 @@ import IconButton from '@mui/material/IconButton';
 import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
+import { Song } from '@/types';
+import MediaItem from './MediaItem';
 
-const Library = () => {
+interface LibraryProps {
+    songs: Song[];
+}
+
+const Library: React.FC<LibraryProps> = ({
+    songs
+}) => {
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user } = useUser();
@@ -96,7 +104,7 @@ const Library = () => {
                                 fontWeight: '600',
                             }}
                             >
-                            {isActive ? 'Creating your playlist' : 'Create playlist'}
+                            {'Create playlist or a song'}
                             </span>
                         }
                         arrow={false}
@@ -125,7 +133,13 @@ const Library = () => {
                 mt-4
                 px-3
             ">
-                List of songs
+                {songs.map((item) => (
+                    <MediaItem 
+                        onClick={() => {}}
+                        key={item.id}
+                        data={item}
+                    />
+                ))}
             </div>
         </div>
     );
