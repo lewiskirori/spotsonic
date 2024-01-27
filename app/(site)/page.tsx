@@ -1,25 +1,26 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+import getSongs from "@/actions/getSongs";
+import PageContent from "./components/PageContent";
 
-export default function Home() {
-  const [greetings, setGreeting] = useState('');
+export const revalidate = 0;
 
-  useEffect(() => {
-    const currentTime = new Date().getHours();
+export default async function Home() {
+  const songs = await getSongs();
 
-    if (currentTime >= 4 && currentTime < 12) {
-      setGreeting('Good morning');
-    } else if (currentTime >= 12 && currentTime < 16) {
-      setGreeting('Good afternoon');
-    } else if (currentTime >= 16 && currentTime < 22) {
-      setGreeting('Good evening');
-    } else {
-      setGreeting('Zzzzzzz');
-    }
-  }, []);
+  let greetings = '';
+
+  const currentTime = new Date().getHours();
+
+  if (currentTime >= 4 && currentTime < 12) {
+    greetings = 'Good morning';
+  } else if (currentTime >= 12 && currentTime < 16) {
+    greetings = 'Good afternoon';
+  } else if (currentTime >= 16 && currentTime < 22) {
+    greetings = 'Good evening';
+  } else {
+    greetings = 'Zzzzzzz';
+  }
 
   return (
     <div className="
@@ -68,9 +69,7 @@ export default function Home() {
             Today’s freshest hits
           </h1>
         </div>
-        <div>
-          List of Songs!!
-        </div>
+        <PageContent songs={songs}/>
       </div>
     </div>
   )
