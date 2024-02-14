@@ -23,7 +23,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                     text-neutral-400
                 "
             >
-                No matching songs found. Try searching again using a different spelling or keyword. You could also reload the page in a few moments.
+                No matching songs. Try a different spelling or keyword. You could also reload the page in a moment.
             </div>
         )
     }
