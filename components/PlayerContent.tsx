@@ -9,7 +9,9 @@ import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Howl } from 'howler';
+import Tooltip from '@mui/material/Tooltip';
 
 interface PlayerContentProps {
     song: Song;
@@ -23,6 +25,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const player = usePlayer();
     const [volume, setVolume] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [sound, setSound] = useState<Howl | null>(null);
+    const [prevVolume, setPrevVolume] = useState(1);
 
     const Icon = isPlaying ? MdPause : ImPlay3;
     const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
@@ -57,7 +61,54 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         player.setId(prevSong);
     };
 
-    
+    useEffect(() => {
+        const newSound = new Howl({
+            src: [songUrl],
+            autoplay: false,
+            volume: volume,
+            loop: false,
+            format: ['mp3'],
+            onplay: () => setIsPlaying(true),
+            onpause: () => setIsPlaying(false),
+            onend: () => {
+                setIsPlaying(false);
+                onPlayNext();
+            }
+        });
+
+        setSound(newSound);
+
+        return () => {
+            if (newSound) {
+                newSound.unload();
+            }
+        };
+    }, [songUrl]);
+
+    useEffect(() => {
+        if (sound) {
+            sound.volume(volume);
+        }
+    }, [sound, volume]);
+
+    const handlePlay = () => {
+        if (!sound) return;
+
+        if (isPlaying) {
+            sound.pause();
+        } else {
+            sound.play();
+        }
+    };
+
+    const toggleMute = () => {
+        if (volume === 0) {
+            setVolume(prevVolume);
+        } else {
+            setPrevVolume(volume);
+            setVolume(0);
+        }
+    };
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
@@ -81,7 +132,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 items-center
             ">
                 <div
-                    onClick={() => {}}
+                    onClick={handlePlay}
                     className="
                         h-10
                         w-10
@@ -110,6 +161,20 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                     gap-x-6
                 "
             >
+                <Tooltip
+                    title={
+                        <span
+                        style={{
+                            fontFamily: 'Montserrat',
+                            fontWeight: '600',
+                        }}
+                        >
+                        {'Previous'}
+                        </span>
+                    }
+                    arrow={false}
+                    placement="top"
+                >
                 <AiFillStepBackward
                     onClick={onPlayPrev} 
                     size={30}
@@ -120,8 +185,9 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                         transition
                     "
                 />
+                </Tooltip>
                 <div
-                    onClick={() => {}}
+                    onClick={handlePlay}
                     className="
                         flex
                         items-center
@@ -136,6 +202,20 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 >
                     <Icon size={30} className="text-black" />
                 </div>
+                <Tooltip
+                    title={
+                        <span
+                        style={{
+                            fontFamily: 'Montserrat',
+                            fontWeight: '600',
+                        }}
+                        >
+                        {'Next'}
+                        </span>
+                    }
+                    arrow={false}
+                    placement="top"
+                >
                 <AiFillStepForward
                     onClick={onPlayNext}
                     size={30}
@@ -146,16 +226,34 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                         transition
                     "
                 />
+                </Tooltip>
             </div>
 
             <div className="hidden md:flex w-full justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px]">
+                    <Tooltip
+                        title={
+                            <span
+                            style={{
+                                fontFamily: 'Montserrat',
+                                fontWeight: '600',
+                            }}
+                            >
+                            {volume === 0 ? 'Unmute' : 'Mute'}
+                            </span>
+                        }
+                        arrow={false}
+                        placement="top"
+                    >
                     <VolumeIcon 
-                        onClick={() => {}}
+                        onClick={toggleMute}
                         className="text-neutral-400 cursor-pointer hover:text-white transition"
                         size={34}
+                    /></Tooltip>
+                    <Slider 
+                        value={volume} 
+                        onChange={(value) => setVolume(value)}
                     />
-                    <Slider />
                 </div>
             </div>
         </div>

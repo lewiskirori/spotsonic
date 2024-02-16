@@ -1,6 +1,7 @@
 "use client";
 
 import * as RadixSlider from "@radix-ui/react-slider"
+import { useState } from "react";
 
 interface SliderProps {
     value?: number;
@@ -11,13 +12,15 @@ const Slider: React.FC<SliderProps> = ({
     value = 1,
     onChange
 }) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     const handleChange = (newvalue: number[]) => {
         onChange?.(newvalue[0]);
-    }
+    };
 
     return (
         <RadixSlider.Root
-            className="
+            className={`
                 relative
                 flex
                 items-center
@@ -25,7 +28,7 @@ const Slider: React.FC<SliderProps> = ({
                 touch-none
                 w-full
                 h-10
-            "
+            `}
             defaultValue={[1]}
             value={[value]}
             onValueChange={handleChange}
@@ -34,21 +37,26 @@ const Slider: React.FC<SliderProps> = ({
             aria-label="Volume"
         >
             <RadixSlider.Track
-                className="
+                className={`
                     bg-neutral-600
                     relative
                     grow
                     rounded-full
                     h-[3px]
-                "
+                    transition-colors
+                `}
             >
                 <RadixSlider.Range 
-                    className="
+                    className={`
                         absolute
                         bg-white
                         rounded-full
                         h-full
-                    "
+                        transition-colors
+                        ${isHovered ? 'hover:bg-green-500' : ''}
+                    `}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                 />
             </RadixSlider.Track>
         </RadixSlider.Root>
