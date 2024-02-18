@@ -67,7 +67,7 @@ const UploadModal = () => {
 
                 if (songError) {
                     setIsLoading(false);
-                    return toast.error('Song upload was unsuccessful.');
+                    return toast.error('We hit a bump! Song upload encountered an issue.');
                 }
 
 
@@ -107,7 +107,7 @@ const UploadModal = () => {
 
                 router.refresh();
                 setIsLoading(false);
-                toast.success('New song added successfully!');
+                toast.success('Sweet! Your new song has been added!');
                 reset();
                 uploadModal.onClose();
         } catch (error) {
@@ -119,8 +119,8 @@ const UploadModal = () => {
 
     return (
         <Modal
-            title="Add a Song to your Playlist"
-            description="Upload an audio MP3 song file"
+            title="Add a Song to Playlists"
+            description="Upload an MP3 audio file for the song."
             isOpen={uploadModal.isOpen}
             onChange={onChange}
 
@@ -166,7 +166,7 @@ const UploadModal = () => {
                     />
                 </div>
                 <Button className="hover:opacity-75" disabled={isLoading} type="submit">
-                    {isLoading ? 'Composing…' : 'Compose your track'}
+                    {isLoading ? 'Composing…' : 'Compose your music'}
                 </Button>
             </form>
         </Modal>
