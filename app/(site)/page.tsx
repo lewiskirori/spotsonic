@@ -63,9 +63,9 @@ export default async function Home() {
           </div>
         </div>
       </Header>
-      <div className="mt-2 mb-7 px-6">
+      <div className="mt-2 mb-7 px-6 sm:mt-3 sm:mb-8 md:mt-4 md:mb-9 lg:mt-5 lg:mb-10">
         <div className="flex justify-between items-center">
-          <h1 className="text-white text-2xl font-semibold">
+          <h1 className="text-white text-2xl font-semibold -mt-4">
             Today’s freshest hits
           </h1>
         </div>
