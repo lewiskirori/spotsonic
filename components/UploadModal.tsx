@@ -67,7 +67,7 @@ const UploadModal = () => {
 
                 if (songError) {
                     setIsLoading(false);
-                    return toast.error('We hit a bump! Song upload encountered an issue.');
+                    return toast.error('We hit a bump:/ An error occurred during song upload. Let’s try that again.');
                 }
 
 
@@ -85,7 +85,7 @@ const UploadModal = () => {
 
                 if (imageError) {
                     setIsLoading(false);
-                    return toast.error('Error during image upload')
+                    return toast.error('An error occurred during image upload')
                 }
 
             const {
@@ -107,11 +107,11 @@ const UploadModal = () => {
 
                 router.refresh();
                 setIsLoading(false);
-                toast.success('Sweet! Your new song has been added!');
+                toast.success('Sweet! Your song has been successfully added.');
                 reset();
                 uploadModal.onClose();
         } catch (error) {
-            toast.error("Uh-oh! Something didn’t work.")
+            toast.error("Uh-oh! Something didn’t work. Check your connection.")
         } finally {
             setIsLoading(false);
         }

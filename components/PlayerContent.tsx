@@ -73,6 +73,13 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             onend: () => {
                 setIsPlaying(false);
                 onPlayNext();
+                if (player.activeId !== player.ids[player.ids.length - 1]) {
+                    setTimeout(() => {
+                        if (newSound) {
+                            newSound.play();
+                        }
+                    }, 1000);
+                }
             }
         });
 
