@@ -104,7 +104,7 @@ const Library: React.FC<LibraryProps> = ({
                                 fontWeight: '600',
                             }}
                             >
-                            {'Create playlist or a song'}
+                            {'Create a song or playlist'}
                             </span>
                         }
                         arrow={false}

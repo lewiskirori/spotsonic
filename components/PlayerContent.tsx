@@ -9,7 +9,7 @@ import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import Slider from "./Slider";
 import usePlayer from "@/hooks/usePlayer";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Howl } from 'howler';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -27,6 +27,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const [isPlaying, setIsPlaying] = useState(false);
     const [sound, setSound] = useState<Howl | null>(null);
     const [prevVolume, setPrevVolume] = useState(1);
+
+    const keyListener = useRef<any>(null);
 
     const Icon = isPlaying ? MdPause : ImPlay3;
     const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
@@ -64,7 +66,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     useEffect(() => {
         const newSound = new Howl({
             src: [songUrl],
-            autoplay: false,
+            autoplay: true,
             volume: volume,
             loop: false,
             format: ['mp3'],
@@ -73,22 +75,27 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             onend: () => {
                 setIsPlaying(false);
                 onPlayNext();
-                if (player.activeId !== player.ids[player.ids.length - 1]) {
-                    setTimeout(() => {
-                        if (newSound) {
-                            newSound.play();
-                        }
-                    }, 1000);
-                }
             }
         });
 
         setSound(newSound);
 
+        keyListener.current = (event: KeyboardEvent) => {
+            if (event.code === 'Space') {
+                handlePlay();
+            } else if (event.code === 'KeyM') {
+                toggleMute();
+            }
+        };
+
+        window.addEventListener('keydown', keyListener.current);
+
         return () => {
             if (newSound) {
                 newSound.unload();
             }
+
+            window.removeEventListener('keydown', keyListener.current);
         };
     }, [songUrl]);
 
