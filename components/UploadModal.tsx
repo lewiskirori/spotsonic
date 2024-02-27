@@ -47,7 +47,7 @@ const UploadModal = () => {
             const songFile = values.song?.[0];
 
             if (!imageFile || !songFile || !user) {
-                toast.error('Required details are absent');
+                toast.error('Mandatory details are omitted.');
                 return;
             }
 
@@ -67,7 +67,7 @@ const UploadModal = () => {
 
                 if (songError) {
                     setIsLoading(false);
-                    return toast.error('We hit a bump:/ An error occurred during song upload. Let’s try that again.');
+                    return toast.error('We hit a bump while uploading the song:/ Let’s try that again.');
                 }
 
 
@@ -85,7 +85,7 @@ const UploadModal = () => {
 
                 if (imageError) {
                     setIsLoading(false);
-                    return toast.error('An error occurred during image upload')
+                    return toast.error('Uh-oh! We hit a snag during picture upload.')
                 }
 
             const {
@@ -107,11 +107,11 @@ const UploadModal = () => {
 
                 router.refresh();
                 setIsLoading(false);
-                toast.success('Sweet! Your song has been successfully added.');
+                toast.success('Sweet! Your song is now in the mix.');
                 reset();
                 uploadModal.onClose();
         } catch (error) {
-            toast.error("Uh-oh! Something didn’t work. Check your connection.")
+            toast.error("Oops! Something didn’t work. Check your connection.")
         } finally {
             setIsLoading(false);
         }
