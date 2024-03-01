@@ -171,6 +171,6 @@ const UploadModal = () => {
             </form>
         </Modal>
     );
-};
+}
 
 export default UploadModal;
