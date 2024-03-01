@@ -27,4 +27,18 @@ export const postData = async ({
         credentials: 'same-origin',
         body: JSON.stringify(data)
     });
-}
+
+    if (!res.ok) {
+        console.log('Error during POST', { url, data, res });
+
+        throw new Error(res.statusText);
+    }
+
+    return res.json();
+};
+
+export const toDateTime = (secs: number) => {
+    var t = new Date('1970-01-01T00:30:00Z');
+    t.setSeconds(secs);
+    return t;
+}; 
