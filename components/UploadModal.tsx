@@ -119,7 +119,7 @@ const UploadModal = () => {
 
     return (
         <Modal
-            title="Add a Song to Playlists"
+            title="Add a Song to Playlist(s)"
             description="Upload an MP3 audio file for the song."
             isOpen={uploadModal.isOpen}
             onChange={onChange}
