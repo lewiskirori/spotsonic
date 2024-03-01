@@ -31,12 +31,17 @@ const LikedContent: React.FC<LikedContentProps> = ({
             <div className="
                 flex
                 flex-col
+                items-center
                 gap-y-2
                 w-full
                 px-6
                 text-neutral-400
-            ">
-                No favorites have been added yet.
+            "
+            style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
+            >
+                <span style={{ fontSize: '1.0rem' }}>
+                    Ahh — No favorites have been added yet.
+                </span>
             </div>
         )
     }

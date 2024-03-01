@@ -20,13 +20,21 @@ const SearchContent: React.FC<SearchContentProps> = ({
                 className="
                     flex
                     flex-col
+                    items-center
                     gap-y-2
                     w-full
                     px-6
                     text-neutral-400
                 "
+                style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
             >
-                Hmm… No matching songs. Try a different spelling or keyword, or you could please refresh.
+                <span style={{ fontSize: '1.4rem' }}>
+                    Hmm… No matching songs
+                </span>
+                <br />
+                <span style={{ fontSize: '0.9rem' }}>
+                    Try a different spelling or keyword, or you could please refresh.
+                </span>
             </div>
         )
     }

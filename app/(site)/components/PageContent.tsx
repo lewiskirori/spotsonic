@@ -15,8 +15,14 @@ const PageContent: React.FC<PageContentProps> = ({
 
     if (songs.length === 0) {
         return (
-            <div className="mt-4 text-neutral-400">
-                Oh dear! No songs found. Kindly give it another try shortly.
+            <div className="mt-4 text-neutral-400 flex flex-col items-center" style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}>
+                <span style={{ fontSize: '1.4rem' }}>
+                    Oh dear — No music found
+                </span>
+                <br />
+                <span style={{ fontSize: '0.9rem' }}>
+                    Kindly ‘try reloading’ shortly.
+                </span>
             </div>
         )
     }
