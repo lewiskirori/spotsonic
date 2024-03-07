@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { HiUser } from "react-icons/hi";
 import { Typography } from '@mui/material';
 import toast from 'react-hot-toast';
+import usePlayer from '@/hooks/usePlayer';
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -26,6 +27,7 @@ const Header: React.FC<HeaderProps> = ({
     children,
     className
 }) => {
+    const player = usePlayer();
     const authModal = useAuthModal();
     const router = useRouter();
 
@@ -40,6 +42,8 @@ const Header: React.FC<HeaderProps> = ({
         const { error } = await supabaseClient.auth.signOut();
 
         setLoggingOut(false);
+
+        player.reset();
     
         router.refresh();
   
