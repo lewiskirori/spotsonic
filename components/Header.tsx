@@ -54,6 +54,15 @@ const Header: React.FC<HeaderProps> = ({
         }
     }
 
+    const extractUsername = (email: string | undefined) => {
+        if (email) {
+            const atIndex = email.indexOf('@');
+            if (atIndex !== -1) {
+                return email.slice(0, atIndex);
+            }
+        }
+        return 'User';
+    };
 
     return (
         <div
@@ -229,6 +238,11 @@ const Header: React.FC<HeaderProps> = ({
                                         style={{
                                             fontFamily: 'Montserrat',
                                             fontWeight: '600',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
                                         }}
                                         >
                                         <Typography 
@@ -238,7 +252,7 @@ const Header: React.FC<HeaderProps> = ({
                                         >
                                             {'Welcome to see you!'}
                                         </Typography>
-                                        {user ? user.email : ''}
+                                        {extractUsername(user?.email).toUpperCase()}
                                         </span>
                                     </React.Fragment>
                                 }

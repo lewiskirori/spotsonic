@@ -29,7 +29,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                 style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
             >
                 <span style={{ fontSize: '1.4rem' }}>
-                    Hmm… No matching songs
+                    Hmm… Couldn’t find a song match
                 </span>
                 <br />
                 <span style={{ fontSize: '0.9rem' }}>
