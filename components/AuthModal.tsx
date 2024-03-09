@@ -38,6 +38,7 @@ const AuthModal = () => {
             <Auth 
                 theme="dark"
                 providers={["google"]}
+                magicLink={true}
                 supabaseClient={supabaseClient}
                 appearance={{
                     theme: ThemeSupa,
