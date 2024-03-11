@@ -164,6 +164,7 @@ const Header: React.FC<HeaderProps> = ({
                         color="rgba(255, 255, 255, 0.7)"
                     >
                         <button
+                            onClick={() => router.push('/')} 
                             className="
                                 rounded-full
                                 p-2
@@ -184,6 +185,7 @@ const Header: React.FC<HeaderProps> = ({
                         color="rgba(255, 255, 255, 0.7)"
                     >
                         <button
+                            onClick={() => router.push('/search')}
                             className="
                                 rounded-full
                                 p-2
