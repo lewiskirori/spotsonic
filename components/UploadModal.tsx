@@ -107,7 +107,7 @@ const UploadModal = () => {
 
                 router.refresh();
                 setIsLoading(false);
-                toast.success('Sweet! Your song is now in the mix.');
+                toast.success('Sweet! Your song is in the mix.');
                 reset();
                 uploadModal.onClose();
         } catch (error) {
