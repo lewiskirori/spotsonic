@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import getSongs from "@/actions/getSongs";
@@ -10,13 +11,15 @@ export default async function Home() {
 
   let greetings = '';
 
-  const currentTime = new Date().getHours();
+  const currentTime = DateTime.local().toFormat('HH:mm');
 
-  if (currentTime >= 4 && currentTime < 12) {
+  const currentHour = parseInt(currentTime.split(':')[0]);
+
+  if (currentHour >= 4 && currentHour < 12) {
     greetings = 'Good morning';
-  } else if (currentTime >= 12 && currentTime < 16) {
+  } else if (currentHour >= 12 && currentHour < 16) {
     greetings = 'Good afternoon';
-  } else if (currentTime >= 16 && currentTime < 22) {
+  } else if (currentHour >= 16 && currentHour < 22) {
     greetings = 'Good evening';
   } else {
     greetings = 'Zzzzzzz';

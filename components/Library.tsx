@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { LuLibrary } from "react-icons/lu";
 import { HiOutlinePlus } from "react-icons/hi";
 import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
 import useAuthModal from '@/hooks/useAuthModal';
 import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
@@ -113,19 +112,28 @@ const Library: React.FC<LibraryProps> = ({
                         arrow={false}
                         placement="top"
                     >
-                        <IconButton
+                        <button
                             onClick={onClick}
                             className={`
                                 text-neutral-400
                                 hover:text-white
-                                hover:bg-neutral-800
-                                transition
-                                duration-500 ease-in-out
-                                ${isActive ? 'bg-black' : ''}
+                                transform
+                                hover:scale-110
+                                inline-flex
+                                items-center
+                                justify-center
                             `}
-                            >
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                            style={{
+                                backgroundColor: isHovered ? '#000000' : 'transparent',
+                                borderRadius: '50%',
+                                width: '40px',
+                                height: '40px',
+                            }}
+                        >
                             <HiOutlinePlus size={20} />
-                        </IconButton>
+                        </button>
                     </Tooltip>
                 </div>
             </div>

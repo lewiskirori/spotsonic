@@ -83,19 +83,21 @@ const AccountContent = () => {
                 {user?.email ? user.email.substring(0, 2).toUpperCase() : 'ST'}
             </Button>
             </Tooltip>
-            <span style={{ fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>
-                Howdy, <strong>{extractUsername(user?.email).toUpperCase()}</strong>!
-            </span>
-            <br />
-            <span style={{ fontSize: '1.2rem', marginBottom: '1rem', textAlign: 'center' }}>
-                Status: <span style={{ color: '#25B361' }}>{userStatus === 'Online' ? 'Online' : 'Offline'}</span>
-                <br />
-                You’re now signed in as {user?.email || 'Stunner'}.
-                <br />
-                <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                    {userStatus === 'Online' ? '‘Currently available’' : '‘Currently unavailable’'}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
+                    Howdy, <strong>{extractUsername(user?.email).toUpperCase()}</strong>!
                 </span>
-            </span>
+                <br />
+                <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
+                    Status: <span style={{ color: '#25B361' }}>{userStatus === 'Online' ? 'Online' : 'Offline'}</span>
+                    <br />
+                    You’re now signed in as {user?.email || 'Stunner'}.
+                    <br />
+                    <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                        {userStatus === 'Online' ? '‘Currently available’' : '‘Currently unavailable’'}
+                    </span>
+                </span>
+            </div>
         </div>
     </Box>
     );

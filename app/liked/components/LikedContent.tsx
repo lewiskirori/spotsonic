@@ -39,9 +39,11 @@ const LikedContent: React.FC<LikedContentProps> = ({
             "
             style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
             >
-                <span style={{ fontSize: '1.0rem' }}>
-                    Ahh — No favorites have been added yet.
-                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                    <span style={{ fontSize: '1.0rem' }}>
+                        Ahh — No favorites have been added yet.
+                    </span>
+                </div>
             </div>
         )
     }
@@ -53,7 +55,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                     key={song.id}
                     className="flex items-center gap-x-4 w-full"
                 >
-                    <div className="flex-1">
+                    <div className="flex-1 truncate">
                         <MediaItem 
                             onClick={(id: string) => onPlay(id)}
                             data={song}

@@ -28,13 +28,15 @@ const SearchContent: React.FC<SearchContentProps> = ({
                 "
                 style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
             >
-                <span style={{ fontSize: '1.4rem' }}>
-                    Hmm… Couldn’t find a song match
-                </span>
-                <br />
-                <span style={{ fontSize: '0.9rem' }}>
-                    Try a different spelling or keyword, or you could please refresh.
-                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                    <span style={{ fontSize: '1.4rem' }}>
+                        Hmm… Couldn’t find a song match
+                    </span>
+                    <br />
+                    <span style={{ fontSize: '0.9rem' }}>
+                        Try a different spelling or keyword, or you could please refresh.
+                    </span>
+                </div>
             </div>
         )
     }
@@ -46,7 +48,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                     key={song.id}
                     className="flex items-center gap-x-4 w-full"
                 >
-                    <div className="flex-1">
+                    <div className="flex-1 truncate">
                         <MediaItem 
                             onClick={(id: string) => onPlay(id)}
                             data={song}
