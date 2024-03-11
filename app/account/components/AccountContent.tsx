@@ -52,7 +52,7 @@ const AccountContent = () => {
                         fontSize= 'inherit'
                     >
                     </Typography>
-                    {extractUsername(user?.email)}
+                        @{extractUsername(user?.email)}
                     </span>
                 </React.Fragment>
             }
@@ -88,7 +88,7 @@ const AccountContent = () => {
             </span>
             <br />
             <span style={{ fontSize: '1.2rem', marginBottom: '1rem', textAlign: 'center' }}>
-                Status: <span style={{ color: '#01C954' }}>{userStatus === 'Online' ? 'Online' : 'Offline'}</span>
+                Status: <span style={{ color: '#25B361' }}>{userStatus === 'Online' ? 'Online' : 'Offline'}</span>
                 <br />
                 You’re now signed in as {user?.email || 'Stunner'}.
                 <br />
