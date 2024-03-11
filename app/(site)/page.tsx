@@ -9,21 +9,21 @@ export const revalidate = 0;
 export default async function Home() {
   const songs = await getSongs();
 
-  let greetings = '';
+  let greetings = 'Good day';
 
-  const currentTime = DateTime.local().setZone('local').toFormat('HH:mm');
+  //const currentTime = DateTime.local().setZone('local').toFormat('HH:mm');
 
-  const currentHour = parseInt(currentTime.split(':')[0]);
+  //const currentHour = parseInt(currentTime.split(':')[0]);
 
-  if (currentHour >= 4 && currentHour < 12) {
-    greetings = 'Good morning';
-  } else if (currentHour >= 12 && currentHour < 16) {
-    greetings = 'Good afternoon';
-  } else if (currentHour >= 16 && currentHour < 22) {
-    greetings = 'Good evening';
-  } else {
-    greetings = 'Zzzzzzz';
-  }
+  //if (currentHour >= 4 && currentHour < 12) {
+  //  greetings = 'Good morning';
+  //} else if (currentHour >= 12 && currentHour < 16) {
+  //  greetings = 'Good afternoon';
+  //} else if (currentHour >= 16 && currentHour < 22) {
+  //  greetings = 'Good evening';
+  //} else {
+  //  greetings = 'Zzzzzzz';
+  //}
 
   return (
     <div className="
