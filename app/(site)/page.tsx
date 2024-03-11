@@ -11,7 +11,7 @@ export default async function Home() {
 
   let greetings = '';
 
-  const currentTime = DateTime.local().toFormat('HH:mm');
+  const currentTime = DateTime.local().setZone('local').toFormat('HH:mm');
 
   const currentHour = parseInt(currentTime.split(':')[0]);
 

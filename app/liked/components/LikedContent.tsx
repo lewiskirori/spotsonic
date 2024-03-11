@@ -26,7 +26,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
         }
     }, [isLoading, user, router]);
 
-    if (songs.length === 0) {
+    if (songs.length !== 0) {
         return (
             <div className="
                 flex
@@ -39,11 +39,9 @@ const LikedContent: React.FC<LikedContentProps> = ({
             "
             style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}
             >
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-                    <span style={{ fontSize: '1.0rem' }}>
-                        Ahh — No favorites have been added yet.
-                    </span>
-                </div>
+                <span style={{ fontSize: '1.0rem' }}>
+                    Ahh — No favorites have been added yet.
+                </span>
             </div>
         )
     }
