@@ -1,0 +1,30 @@
+/* Player Content */
+
+
+.player-content .flex-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;  
+}
+
+.player-content .marquee-title {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee-title 10s linear infinite;
+}
+
+.player-content .marquee-author {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee-author 10s linear infinite;
+}
+
+@keyframes marquee-title {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-author {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}

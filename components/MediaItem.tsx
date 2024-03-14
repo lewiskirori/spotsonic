@@ -1,5 +1,6 @@
 "use client";
 
+import './playerContent.css';
 import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
 import { Song } from "@/types";
@@ -61,10 +62,10 @@ const MediaItem: React.FC<MediaItemProps> = ({
                 gap-y-1
                 overflow-hidden
             ">
-                <p className="text-white truncate">
+                <p className="text-white truncate marquee-title">
                     {data.title}
                 </p>
-                <p className="text-neutral-400 text-sm truncate">
+                <p className="text-neutral-400 text-sm truncate marquee-author">
                     {data.author}
                 </p>
             </div>

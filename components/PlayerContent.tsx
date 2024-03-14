@@ -1,5 +1,6 @@
 "use client";
 
+import './playerContent.css';
 import { Song } from "@/types";
 import MediaItem from "./MediaItem";
 import LikeButton from "./LikeButton";
@@ -127,12 +128,13 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="
+                player-content
                 flex
                 w-full
                 justify-start
             ">
                 <div className="flex items-center gap-x-4">
-                    <div className="truncate w-36">
+                    <div className="w-36">
                         <MediaItem data={song} />
                     </div>
                     <LikeButton songId={song.id} />
