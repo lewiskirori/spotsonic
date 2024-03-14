@@ -30,7 +30,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
             >
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <span style={{ fontSize: '1.4rem' }}>
-                        Hmm… Couldn’t find a song match
+                        Hmmm… couldn’t find a song match
                     </span>
                     <br />
                     <span style={{ fontSize: '0.9rem' }}>
