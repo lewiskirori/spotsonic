@@ -94,7 +94,7 @@ const AccountContent = () => {
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
                     Activity status: <span style={{ color: '#25B361' }}>{userStatus === 'On Air' ? 'On Air' : 'Off-Air'}</span>
                     <br />
-                    You’re signed in as {user?.email || 'Stunner@domain.example'}.
+                    You’re signed in as {user?.email || 'stunner@domain.example'}.
                     <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
                         {userStatus === 'On Air' ? '‘Tuned In’' : '‘Out of Touch’'}
