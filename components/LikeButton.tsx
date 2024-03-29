@@ -62,7 +62,23 @@ const LikeButton: React.FC<LikeButtonProps> = ({
                 toast.error(error.message);
             } else {
                 setIsLiked(false);
-                toast.success('Unliked!')
+                toast.promise(
+                    new Promise<void>((resolve, reject) => {
+                        setTimeout(() => {
+                        const success = true;
+                        if (success) {
+                            resolve();
+                        } else {
+                            reject();
+                        }
+                        }, 2500);
+                    }),
+                        {
+                        loading: 'Disliking…',
+                        success: <b>Unliked!</b>,
+                        error: <b>Oops! Could’t withdraw your like.</b>,
+                        }
+                    );
                 } 
             } else {
                 const { error } = await supabaseClient
@@ -76,7 +92,23 @@ const LikeButton: React.FC<LikeButtonProps> = ({
                 toast.error(error.message);
             } else {
                 setIsLiked(true);
-                toast.success('I like this!');
+                toast.promise(
+                new Promise<void>((resolve, reject) => {
+                    setTimeout(() => {
+                    const success = true;
+                    if (success) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                    }, 3000);
+                }),
+                    {
+                    loading: 'Liking…',
+                    success: <b>I like this!</b>,
+                    error: <b>Oops! Could’t add your like.</b>,
+                    }
+                );
             }
         }
 

@@ -134,7 +134,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 justify-start
             ">
                 <div className="flex items-center gap-x-4">
-                    <div className="w-36">
+                    <div className="flex-grow truncate">
                         <MediaItem data={song} />
                     </div>
                     <LikeButton songId={song.id} />

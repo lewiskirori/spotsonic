@@ -19,6 +19,13 @@
     animation: marquee-author 10s linear infinite;
 }
 
+.player-content .truncate-author {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+
 @keyframes marquee-title {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }

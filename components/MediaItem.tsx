@@ -65,7 +65,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
                 <p className="text-white truncate marquee-title">
                     {data.title}
                 </p>
-                <p className="text-neutral-400 text-sm truncate">
+                <p className="text-neutral-400 text-sm truncate-author">
                     {data.author}
                 </p>
             </div>

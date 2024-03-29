@@ -107,11 +107,27 @@ const UploadModal = () => {
 
                 router.refresh();
                 setIsLoading(false);
-                toast.success('Sweet! Your song is in the mix.');
+                toast.promise(
+                    new Promise<void>((resolve, reject) => {
+                      setTimeout(() => {
+                        const success = true;
+                        if (success) {
+                          resolve();
+                        } else {
+                          reject();
+                        }
+                      }, 3000);
+                    }),
+                     {
+                       loading: 'Adding your song…',
+                       success: <b>Sweet! Your song is in the mix.</b>,
+                       error: <b>Oops! Could’t add your song.</b>,
+                     }
+                   );
                 reset();
                 uploadModal.onClose();
         } catch (error) {
-            toast.error("Oops! Something didn’t work. Check your connection.")
+            toast.error("Oops! Could’t add song. Check your connection.")
         } finally {
             setIsLoading(false);
         }
