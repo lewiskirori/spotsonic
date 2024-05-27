@@ -252,7 +252,7 @@ const Header: React.FC<HeaderProps> = ({
                                             fontWeight= '600'
                                             fontSize= 'inherit'
                                         >
-                                            {'Welcome to see you!'}
+                                            {'Howdy!'}
                                         </Typography>
                                         {extractUsername(user?.email).toUpperCase()}
                                         </span>
