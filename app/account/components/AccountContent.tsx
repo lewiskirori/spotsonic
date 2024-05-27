@@ -85,10 +85,10 @@ const AccountContent = () => {
             </Tooltip>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    Howdy &#x1F920;,
+                    Howdy &#x1F920;
                 </span>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    <strong>{extractUsername(user?.email).toUpperCase()}!</strong>
+                    <strong>{extractUsername(user?.email).toUpperCase()}</strong>
                 </span>
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
