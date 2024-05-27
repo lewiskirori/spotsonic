@@ -80,7 +80,7 @@ const AccountContent = () => {
                     fontSize: 'calc(160px / 3)',
                 }}
             >
-                {user?.email ? user.email.substring(0, 3).toUpperCase() : 'STU'}
+                {user?.email ? user.email.substring(0, 2).toUpperCase() : 'ST'}
             </Button>
             </Tooltip>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
@@ -94,10 +94,10 @@ const AccountContent = () => {
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
                     Activity status: <span style={{ color: '#25B361' }}>{userStatus === 'On Air' ? 'On Air' : 'Off-Air'}</span>
                     <br />
-                    You’re signed in as {user?.email || 'stunner@domain.example'}.
+                    Signed in as {user?.email || 'stunner@domain.example'}.
                     <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                        {userStatus === 'On Air' ? '‘Tuned In’' : '‘Out of Touch’'}
+                    You are {userStatus === 'On Air' ? '‘Tuned In’' : '‘Out of Touch’'}
                     </span>
                 </span>
             </div>
