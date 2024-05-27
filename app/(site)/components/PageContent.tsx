@@ -17,11 +17,11 @@ const PageContent: React.FC<PageContentProps> = ({
         return (
             <div className="mt-4 text-neutral-400 flex flex-col items-center" style={{ paddingTop: '50px', marginTop: 'auto', marginBottom: 'auto' }}>
                 <span style={{ fontSize: '1.4rem' }}>
-                    Oh dear — No music found
+                    Oh dear — No Results Found
                 </span>
                 <br />
                 <span style={{ fontSize: '0.9rem' }}>
-                    Kindly ‘try reloading’ shortly.
+                    Sign in or ‘try reloading’ shortly.
                 </span>
             </div>
         )
