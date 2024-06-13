@@ -21,7 +21,7 @@ const PageContent: React.FC<PageContentProps> = ({
                 </span>
                 <br />
                 <span style={{ fontSize: '0.9rem' }}>
-                    Sign in or try reloading’ shortly.
+                    Sign in or try reloading shortly.
                 </span>
             </div>
         )
