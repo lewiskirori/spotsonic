@@ -88,7 +88,7 @@ const AccountContent = () => {
                     Welcome to see you &#x1F920;
                 </span>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    <strong>{extractUsername(user?.email).toUpperCase()}!</strong>
+                    <strong>{extractUsername(user?.email).toUpperCase()}</strong>
                 </span>
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
