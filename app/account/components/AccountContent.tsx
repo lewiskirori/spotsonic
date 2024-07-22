@@ -85,7 +85,7 @@ const AccountContent = () => {
             </Tooltip>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    Welcome to see you &#x1F920;
+                    Glad you’re here &#x1F920;!
                 </span>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
                     <strong>{extractUsername(user?.email).toUpperCase()}</strong>
