@@ -80,7 +80,7 @@ const AccountContent = () => {
                     fontSize: 'calc(160px / 3)',
                 }}
             >
-                {user?.email ? user.email.substring(0, 2).toUpperCase() : 'ST'}
+                {user?.email ? user.email.substring(0, 3).toUpperCase() : 'STU'}
             </Button>
             </Tooltip>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
