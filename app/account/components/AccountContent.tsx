@@ -96,20 +96,20 @@ const AccountContent = () => {
                     <span style={{ color: '#25B361' }}>{userStatus === 'Awn Air' ? 'Awn Air' : 'Awf-Air'}</span>
                     <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                    You are {userStatus === 'Awn Air' ? 'Tuned In' : 'Out of Touch'}
+                        And why it make us happy is our business<br>Lil Durk</br>
                     </span>
                 </span>
-                <footer style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#888' }}>
+                <footer style={{ marginBottom: '2rem' fontSize: '0.9rem', color: '#888' }}>
                     <span>
                         &#169; {currentYear} Spotsonic AY
                     </span>
                     <br />
                     <span>
-                        Follow us on <a href="#" style={{ color: '#1DB954' }}>Social Media</a>!
+                        Let’s connect on <a href="#@realspotsonic" style={{ color: '#25B361' }}>Social Media</a>!
                     </span>
                     <br />
                     <span>
-                        Contact us: <a href="mailto:support@spotsonic.com" style={{ color: '#1DB954' }}>support@spotsonic.com</a>
+                        Stay in touch? <a href="mailto:devycotorg@gmail.com" style={{ color: '#1DB954' }}>Contact us</a>.
                     </span>
                 </footer>
             </div>
