@@ -109,7 +109,7 @@ const AccountContent = () => {
                     </span>
                     <br />
                     <span>
-                        Stay in touch? <a href="mailto:devycotorg@gmail.com" style={{ color: '#1DB954' }}>Contact us</a>.
+                        Stay in touch? <a href="mailto:devycotorg@gmail.com" style={{ color: '#25B361' }}>Contact us</a>.
                     </span>
                 </footer>
             </div>
