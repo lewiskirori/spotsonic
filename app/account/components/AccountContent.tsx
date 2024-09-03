@@ -101,19 +101,61 @@ const AccountContent = () => {
                         Lil Durk
                     </span>
                 </span>
-                <footer style={{ marginBottom: '2rem', fontSize: '0.9rem', color: '#888' }}>
-                    <span>
-                        &#169; {currentYear} Spotsonic AY
-                    </span>
-                    <br />
-                    <span>
-                        Let’s connect on <a href="#@realspotsonic" style={{ color: '#25B361' }}>Social Media</a>!
-                    </span>
-                        <br />
-                    <span>
-                        Stay in touch? <a href="mailto:devycotorg@gmail.com" style={{ color: '#25B361' }}>Contact us</a>.
-                    </span>
-                </footer>
+                <footer style={{ marginBottom: '1rem', color: '#888' }}>
+                <span style={{ fontSize: '0.9rem' }}>
+                    &#169; {currentYear} Spotsonic AY
+                </span>
+                <br />
+                <span style={{ fontSize: '1rem', marginTop: '0.5rem' }}>
+                    Let’s connect on{" "}
+                    <a
+                        href="#@realspotsonic"
+                        style={{
+                            color: '#25B361',
+                            textDecoration: 'none',
+                            transition: 'color 0.3s ease, opacity 0.3s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.color = '#1DB954'; 
+                            e.currentTarget.style.opacity = '0.8'; 
+                            e.currentTarget.style.textDecoration = 'underline'; 
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.color = '#25B361'; 
+                            e.currentTarget.style.opacity = '1'; 
+                            e.currentTarget.style.textDecoration = 'none';
+                        }}
+                    >
+                        Social Media
+                    </a>
+                    !
+                </span>
+                <br />
+                <span style={{ fontSize: '1rem' }}>
+                    Stay in touch?{" "}
+                    <a
+                        href="mailto:devy@sposic.com"
+                        style={{
+                            color: '#25B361',
+                            textDecoration: 'none',
+                            transition: 'color 0.3s ease, opacity 0.3s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.color = '#1DB954'; 
+                            e.currentTarget.style.opacity = '0.8';
+                            e.currentTarget.style.textDecoration = 'underline';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.color = '#25B361';
+                            e.currentTarget.style.opacity = '1'; 
+                            e.currentTarget.style.textDecoration = 'none';
+                        }}
+                    >
+                        Contact us
+                    </a>
+                    .
+                </span>
+            </footer>
             </div>
         </div>
     </Box>
