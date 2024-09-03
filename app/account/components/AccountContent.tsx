@@ -94,9 +94,11 @@ const AccountContent = () => {
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
                     <span style={{ color: '#25B361' }}>{userStatus === 'Awn Air' ? 'Awn Air' : 'Awf-Air'}</span>
-                    <br />
+                        <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                        And why it make us happy is our business<br>Lil Durk</br>
+                        And why it make us happy is our business
+                            <br />
+                        Lil Durk
                     </span>
                 </span>
                 <footer style={{ marginBottom: '2rem' fontSize: '0.9rem', color: '#888' }}>
@@ -107,7 +109,7 @@ const AccountContent = () => {
                     <span>
                         Let’s connect on <a href="#@realspotsonic" style={{ color: '#25B361' }}>Social Media</a>!
                     </span>
-                    <br />
+                        <br />
                     <span>
                         Stay in touch? <a href="mailto:devycotorg@gmail.com" style={{ color: '#25B361' }}>Contact us</a>.
                     </span>
