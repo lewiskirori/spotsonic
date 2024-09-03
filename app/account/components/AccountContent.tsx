@@ -107,11 +107,10 @@ const AccountContent = () => {
                 </span>
                 <br />
                 <span style={{ fontSize: '1rem', marginTop: '0.5rem' }}>
-                    Let’s connect on{" "}
+                    Let’s connect on our{" "}
                     <a
                         href="#@realspotsonic"
                         style={{
-                            color: '#25B361',
                             textDecoration: 'none',
                             transition: 'color 0.3s ease, opacity 0.3s ease',
                         }}
@@ -121,12 +120,11 @@ const AccountContent = () => {
                             e.currentTarget.style.textDecoration = 'underline'; 
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.color = '#25B361'; 
                             e.currentTarget.style.opacity = '1'; 
                             e.currentTarget.style.textDecoration = 'none';
                         }}
                     >
-                        Social Media
+                        Socials
                     </a>
                     !
                 </span>
@@ -134,9 +132,8 @@ const AccountContent = () => {
                 <span style={{ fontSize: '1rem' }}>
                     Stay in touch?{" "}
                     <a
-                        href="mailto:devy@sposic.com"
+                        href="mailto:devycotorg@gmail.com"
                         style={{
-                            color: '#25B361',
                             textDecoration: 'none',
                             transition: 'color 0.3s ease, opacity 0.3s ease',
                         }}
@@ -146,7 +143,6 @@ const AccountContent = () => {
                             e.currentTarget.style.textDecoration = 'underline';
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.color = '#25B361';
                             e.currentTarget.style.opacity = '1'; 
                             e.currentTarget.style.textDecoration = 'none';
                         }}
