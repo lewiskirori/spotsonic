@@ -11,7 +11,8 @@ import { HiUser } from "react-icons/hi";
 const AccountContent = () => {
     const router = useRouter();
     const { isLoading, user } = useUser();
-    const [userStatus, setUserStatus] = useState('On Air');
+    const [userStatus, setUserStatus] = useState('Awn Air');
+    const currentYear = new Date().getFullYear();
 
     useEffect(() => {
         if (!isLoading && !user) {
@@ -85,19 +86,32 @@ const AccountContent = () => {
             </Tooltip>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    Glad you’re here &#x1F3A7;!
+                    Glad you’re wired in &#x1F3A7;
                 </span>
                 <span style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                    <strong>{extractUsername(user?.email).toUpperCase()}</strong>
+                    <strong>{extractUsername(user?.email).toUpperCase()}!</strong>
                 </span>
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
-                    <span style={{ color: '#25B361' }}>{userStatus === 'On Air' ? 'On Air' : 'Off-Air'}</span>
+                    <span style={{ color: '#25B361' }}>{userStatus === 'Awn Air' ? 'Awn Air' : 'Awf-Air'}</span>
                     <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                    You are {userStatus === 'On Air' ? 'Tuned In' : 'Out of Touch'}
+                    You are {userStatus === 'Awn Air' ? 'Tuned In' : 'Out of Touch'}
                     </span>
                 </span>
+                <footer style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#888' }}>
+                    <span>
+                        &#169; {currentYear} Spotsonic AY
+                    </span>
+                    <br />
+                    <span>
+                        Follow us on <a href="#" style={{ color: '#1DB954' }}>Social Media</a>!
+                    </span>
+                    <br />
+                    <span>
+                        Contact us: <a href="mailto:support@spotsonic.com" style={{ color: '#1DB954' }}>support@spotsonic.com</a>
+                    </span>
+                </footer>
             </div>
         </div>
     </Box>
