@@ -101,7 +101,7 @@ const AccountContent = () => {
                         Lil Durk
                     </span>
                 </span>
-                <footer style={{ marginBottom: '2rem' fontSize: '0.9rem', color: '#888' }}>
+                <footer style={{ marginBottom: '2rem', fontSize: '0.9rem', color: '#888' }}>
                     <span>
                         &#169; {currentYear} Spotsonic AY
                     </span>
