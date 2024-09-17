@@ -1,4 +1,4 @@
-# SpotSonic
+# Spotsonic
 
 Welcome to SpotSonic - rich soundtrack collection for your taste!
 
