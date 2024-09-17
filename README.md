@@ -1,6 +1,6 @@
 # SpotSonic
 
-Welcome to SpotSonic - Your music for all tastes!
+Welcome to SpotSonic - rich soundtrack collection for your taste!
 
 ## Overview
 
