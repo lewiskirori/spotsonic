@@ -107,7 +107,7 @@ const AccountContent = () => {
                     </span>
                     <br />
                     <span style={{ marginTop: '0.5rem' }}>
-                        Let’s connect on{" "}
+                        Let us connect on{" "}
                         <a
                             href="#@realspotsonic"
                             style={{
