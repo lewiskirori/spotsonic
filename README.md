@@ -4,7 +4,7 @@ Welcome to SpotSonic - rich soundtrack collection for your taste!
 
 ## Overview
 
-SpotSonic is the latest digital music platform, allowing access to a large library of songs and a rich sonic experience for all music fans. Discover, listen, and enjoy your favorites hassle-free.
+SpotSonic is the latest digital music platform, allowing access and storage to a large library of songs and a rich sonic experience for all music lovers. Discover, listen, and enjoy your favorites hassle-free.
 
 ## Features
 
