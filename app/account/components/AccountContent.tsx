@@ -96,7 +96,7 @@ const AccountContent = () => {
                     <span style={{ color: '#25B361' }}>{userStatus === 'Be like a soundtrack:' ? 'Be like a soundtrack:' : 'Awf-Air'}</span>
                         <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                        highlight every moment of your life.
+                        highlight every moment of your life
                     </span>
                 </span>
                 <footer style={{ marginBottom: '1rem', fontSize: '0.9rem', color: '#888' }}>
