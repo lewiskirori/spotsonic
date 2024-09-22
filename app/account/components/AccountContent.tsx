@@ -11,7 +11,7 @@ import { HiUser } from "react-icons/hi";
 const AccountContent = () => {
     const router = useRouter();
     const { isLoading, user } = useUser();
-    const [userStatus, setUserStatus] = useState('Ooh-woo-woo');
+    const [userStatus, setUserStatus] = useState('Be like a soundtrack:');
     const currentYear = new Date().getFullYear();
 
     useEffect(() => {
@@ -93,12 +93,10 @@ const AccountContent = () => {
                 </span>
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
-                    <span style={{ color: '#25B361' }}>{userStatus === 'Ooh-woo-woo' ? 'Ooh-woo-woo' : 'Awf-Air'}</span>
+                    <span style={{ color: '#25B361' }}>{userStatus === 'Be like a soundtrack:' ? 'Be like a soundtrack:' : 'Awf-Air'}</span>
                         <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                        And why it make us happy is our business
-                            <br />
-                        Lil Durk
+                        highlight every moment of your life.
                     </span>
                 </span>
                 <footer style={{ marginBottom: '1rem', fontSize: '0.9rem', color: '#888' }}>
@@ -107,7 +105,7 @@ const AccountContent = () => {
                     </span>
                     <br />
                     <span style={{ marginTop: '0.5rem' }}>
-                        Let us connect on{" "}
+                        Let’s connect on{" "}
                         <a
                             href="#@realspotsonic"
                             style={{
