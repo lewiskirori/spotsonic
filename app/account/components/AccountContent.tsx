@@ -11,7 +11,7 @@ import { HiUser } from "react-icons/hi";
 const AccountContent = () => {
     const router = useRouter();
     const { isLoading, user } = useUser();
-    const [userStatus, setUserStatus] = useState('Ooh-woo-woo');
+    const [userStatus, setUserStatus] = useState('Yo ho ho!');
     const currentYear = new Date().getFullYear();
 
     useEffect(() => {
@@ -93,7 +93,7 @@ const AccountContent = () => {
                 </span>
                 <br />
                 <span style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
-                    <span style={{ color: '#25B361' }}>{userStatus === 'Ooh-woo-woo' ? 'Ooh-woo-woo' : 'Awf-air'}</span>
+                    <span style={{ color: '#25B361' }}>{userStatus === 'Yo ho ho!' ? 'Yo ho ho!' : 'Awf-air'}</span>
                         <br />
                     <span style={{ fontSize: '1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
                         And why it make us happy is our business 
